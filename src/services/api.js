@@ -111,9 +111,7 @@ export async function login(email, senha) {
 export async function cadastrar(nome, email, senha) {
   const resposta = await fetch(`${API_URL}/api/usuarios/cadastrar`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ nome, email, senha }),
   });
 
@@ -123,9 +121,8 @@ export async function cadastrar(nome, email, senha) {
     throw new Error(dados.mensagem || "Não foi possível criar a conta.");
   }
 
-  return dados;
+  return dados; // { sucesso, mensagem, token, usuario }
 }
-
 // ╔═════════════════════════════════════════════════════════════════════╗
 // ║                                                                     ║
 // ║   🚧  TAREFA 2 — LISTAGEM  (GET + token)                            ║
